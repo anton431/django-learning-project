@@ -27,6 +27,9 @@ class Actor(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse('actor_detail', kwargs={"slug": self.name})
+
     class Meta:
         verbose_name = "Актеры и режиссеры"
         verbose_name_plural = "Актеры и режиссеры"
@@ -50,7 +53,7 @@ class Movie(models.Model):
     title = models.CharField("Название", max_length=100)
     tagline = models.CharField("Слоган", max_length=100,default='')
     description = models.TextField("Описание")
-    poster = models.ImageField("Постер", upload_to="moves/")
+    poster = models.ImageField("Постер", upload_to="movies/")
     year = models.PositiveSmallIntegerField("Дата выхода", default=200)
     country = models.CharField("Страна", max_length=30)
     directors = models.ManyToManyField(Actor,verbose_name="режиссер", related_name="film_director")
