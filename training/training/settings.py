@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'movies.apps.MoviesConfig',
+    'contact.apps.ContactConfig',
     'django.contrib.sites',
     'django.contrib.flatpages',
     'ckeditor',
